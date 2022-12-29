@@ -1,15 +1,14 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 function App() {
-  const title = "Welcome to the React Blog App"
-  const like = 50;
-  const link = "http://google.com"
+  
   return (
     <div className="App">
+      <Navbar />
       <div className="content">
-        <h1>{ title }</h1>
-        <p>Likes { like } times</p>
-        <a href={link}>Google Site</a>
+        <Home />
       </div>
     </div>
   );
