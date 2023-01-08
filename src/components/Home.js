@@ -2,40 +2,20 @@ import { useState } from "react";
 
 const Home = () => {
     
-  const title = "Home Page"
-
-  const handleClick = () => {
-    console.log ('Helloo world !');
-  }
-
-  const handleClickAgain = (name) => {
-    console.log ('Hello ' + name)
-  }
-
-  const handleClickE = (e) => {
-    console.log (e);
-  }
-
-  const [name, setName] = useState('Sayem');
-  const handleClickUseState = () => {
-    setName ('Mahdi');
-  }
-
-  const [nameAgain, setNameAgain] = useState('Sayem');
-  const [age, setAge] = useState('25');
-  const handleClickUseStateAgain = () => {
-    setNameAgain ('Mahdi');
-    setAge (30);
-  }
+  const [blogs, setBlogs] = useState([
+    { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
+    { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
+    { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
+  ])
 
   return (
     <div className="home">
-        <h2>{ title }</h2> <br/>
-        <button onClick={handleClick}>Click Me</button> &nbsp;
-        <button onClick={() => handleClickAgain('Sayem')}>Click Me Again</button> &nbsp;
-        <button onClick={handleClickE}>Click Me to see All Event Staff on Console</button> <br /><br />
-        <button onClick={handleClickUseState}>Click Me to change your name</button> &nbsp; {name} <br /><br />
-        <button onClick={handleClickUseStateAgain}>Click Me to change your name and age</button> &nbsp; {nameAgain} is {age} years old <br /><br />
+      {blogs.map(blog => (
+        <div className="blog-preview" key={blog.id} >
+          <h2>{ blog.title }</h2>
+          <p>Written by { blog.author }</p>
+        </div>
+      ))}
     </div>
   )
 }
